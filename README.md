@@ -1,5 +1,7 @@
 # ESP32 WiFi Connect
 
+【修改 wifi_station.cc 中关闭wifi事件未退出导致异常的bug】
+
 This component helps with WiFi connection for the device.
 
 It first tries to connect to a WiFi network using the credentials stored in the flash. If this fails, it starts an access point and a web server to allow the user to connect to a WiFi network.
