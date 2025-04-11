@@ -1,6 +1,6 @@
 # ESP32 WiFi Connect
 
-# # 【修改 wifi_station.cc 中关闭wifi和重新连接wifi导致的各类异常和bug】
+## 【修改 wifi_station.cc 中关闭wifi和重新连接wifi导致的各类异常和bug】
 
 This component helps with WiFi connection for the device.
 
