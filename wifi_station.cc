@@ -41,11 +41,6 @@ void WifiStation::Stop() {
         esp_timer_delete(timer_handle_);
         timer_handle_ = nullptr;
     }
-
-    // Reset the WiFi stack
-    ESP_ERROR_CHECK(esp_wifi_stop());
-    ESP_ERROR_CHECK(esp_wifi_deinit());
-    
     // 取消注册事件处理程序
     if (instance_any_id_ != nullptr) {
         ESP_ERROR_CHECK(esp_event_handler_instance_unregister(WIFI_EVENT, ESP_EVENT_ANY_ID, instance_any_id_));
@@ -55,6 +50,11 @@ void WifiStation::Stop() {
         ESP_ERROR_CHECK(esp_event_handler_instance_unregister(IP_EVENT, IP_EVENT_STA_GOT_IP, instance_got_ip_));
         instance_got_ip_ = nullptr;
     }
+    // Reset the WiFi stack
+    ESP_ERROR_CHECK(esp_wifi_stop());
+    ESP_ERROR_CHECK(esp_wifi_deinit());
+    
+
 }
 
 void WifiStation::OnScanBegin(std::function<void()> on_scan_begin) {
